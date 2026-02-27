@@ -12,6 +12,7 @@
   --border-color: #124658;
   --border-color-hover: #2d96ba;
 }
+
 body {
   font-family: "Figtree", sans-serif;
   margin: 0;
@@ -91,8 +92,34 @@ footer .logo {
   transition: all 0.25s ease-in-out;
 }
 
-#foto-container img:hover {
+#fotoContainer img:hover {
   border-color: var(--border-color-hover);
   transform: scale(1.02);
   box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
+}
+
+/*------- Foto Dialog ------*/
+#fotoDialog {
+  background-color: var(--background-color-header-footer);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  filter: drop-shadow(0 0px 10px rgba(255,255,255,0.25));
+}
+.fotoDialog-header{
+    justify-content: space-between;
+    padding-inline: 16px;
+}
+#fotoDialogHeadline{
+    font-size: 24px;
+    font-weight: 700;
+}
+#fotoDialogImg {
+  height: 300px;
+  max-width: clamp(300px, 10vw, 560px);
+  object-fit: cover;
+}
+#fotoDialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
 }

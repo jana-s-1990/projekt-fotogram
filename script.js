@@ -28,6 +28,8 @@ let imgAltDescription = [
   "Wasserfall",
   "Windmühlen",
 ];
+// Aklueller Index vom Bild
+let currentImg;
 
 //Funktion, welche beim Onload ausgeführt wird
 function init() {
@@ -68,25 +70,58 @@ function renderImgButton(file, alt, index) {
 // --------------------
 // Dialog öffnen (Daten holen) + Rendern woanders
 // --------------------
-function openDialog(index){
-    let fileName = getImgPath(index);
-    let altDescription = getAltDescription(index);
+function openDialog(index) {
+  let fileName = getImgPath(index);
+  let altDescription = getAltDescription(index);
 
-    console.log(fileName);
-    console.log(altDescription);
+  //Globale Werte setzen
+  currentImg = index;
 
-    renderDialog(fileName, altDescription);
+  renderDialog(fileName, altDescription, index);
 
-    fotoDialog.showModal();
-};
-function renderDialog(file, description){
-    let dialogHeadline = document.getElementById('fotoDialogHeadline');
-    let dialogImg = document.getElementById('fotoDialogImg');
-    let dialogImgFilename = document.getElementById('fotoDialogFileName');
+  fotoDialog.showModal();
+}
+function renderDialog(file, description, index) {
+  let dialogHeadline = document.getElementById("fotoDialogHeadline");
+  let dialogImg = document.getElementById("fotoDialogImg");
+  let dialogImgFilename = document.getElementById("fotoDialogFileName");
+  let dialogImgCounter = document.getElementById("imgCounter");
 
-    dialogHeadline.innerText = description;
-    dialogImg.src = `img/${file}`;
-    dialogImg.alt = description;
-    dialogImgFilename.innerText = file;
+  dialogHeadline.innerText = description;
+  dialogImg.src = `img/${file}`;
+  dialogImg.alt = description;
+  dialogImgFilename.innerText = file;
+  dialogImgCounter.innerHTML = `<p>${index + 1}/${yourImg.length}</p>`;
+}
 
+// --------------------
+// Dialog Buttons
+// --------------------
+function browseImgBack() {
+  let index = currentImg - 1;
+
+  if(index < 0){
+    index = yourImg.length -1;
+
+  }
+
+  let imgBackFile = getImgPath(index);
+  let imgBackDescription = getAltDescription(index);
+
+  renderDialog(imgBackFile, imgBackDescription, index);
+
+  currentImg = index;
+}
+function browseImgForward() {
+  let index = currentImg + 1;
+
+  if(index >= yourImg.length){
+    index = 0;
+  }
+  let imgForwardFile = getImgPath(index);
+  let imgForwardDescription = getAltDescription(index);
+
+  renderDialog(imgForwardFile, imgForwardDescription, index);
+
+  currentImg = index;
 }

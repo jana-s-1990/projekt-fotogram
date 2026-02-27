@@ -25,13 +25,21 @@
         ></div>
       </section>
     </main>
-    <dialog id="fotoDialog" open>
-      <h2 id="fotoDialogHeadline"></h2>
+    <dialog id="fotoDialog">
+      <header class="fotoDialog-header display-flex">
+        <h2 id="fotoDialogHeadline"></h2>
+        <button type="button" onclick="fotoDialog.close()">Schließen</button>
+      </header>
       <figure>
         <img id="fotoDialogImg">
         <figcaption id="fotoDialogFileName"></figcaption>
       </figure>
-      <button type="button" onclick="fotoDialog.close()">Schließen</button>
+      <footer>
+        <button id="browseImgBack" onclick="browseImgBack()">zurück</button>
+        <div id="imgCounter">
+        </div>
+        <button id="browseImgForward" onclick="browseImgForward()">vor</button>
+      </footer>
     </dialog>
     <footer id="main-footer-on-page" class="display-flex">
       <figure class="logo display-flex">
