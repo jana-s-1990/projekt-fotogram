@@ -26,19 +26,26 @@
       </section>
     </main>
     <dialog id="fotoDialog">
-      <header class="fotoDialog-header display-flex">
+      <header class="fotoDialog-header display-flex flex-center-y">
         <h2 id="fotoDialogHeadline"></h2>
-        <button type="button" onclick="fotoDialog.close()">Schließen</button>
+        <button class="foto-dialog-close-btn" type="button" onclick="fotoDialog.close()"></button>
       </header>
-      <figure>
-        <img id="fotoDialogImg">
+      <figure class="foto-dialog-img-wrapper display-flex flex-center-x flex-center-y">
+        <img id="fotoDialogImg" />
         <figcaption id="fotoDialogFileName"></figcaption>
       </figure>
-      <footer>
-        <button id="browseImgBack" onclick="browseImgBack()">zurück</button>
-        <div id="imgCounter">
-        </div>
-        <button id="browseImgForward" onclick="browseImgForward()">vor</button>
+      <footer class="display-flex foto-dialog-footer">
+        <button
+          id="browseImgBack"
+          class="foto-dialog-browse-btn"
+          onclick="browseImgBack()"
+        ></button>
+        <div id="imgCounter"></div>
+        <button
+          id="browseImgForward"
+          class="foto-dialog-browse-btn"
+          onclick="browseImgForward()"
+        ></button>
       </footer>
     </dialog>
     <footer id="main-footer-on-page" class="display-flex">

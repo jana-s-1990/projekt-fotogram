@@ -104,22 +104,61 @@ footer .logo {
   color: #fff;
   border: none;
   border-radius: 40px;
-  filter: drop-shadow(0 0px 10px rgba(255,255,255,0.25));
-}
-.fotoDialog-header{
-    justify-content: space-between;
-    padding-inline: 16px;
-}
-#fotoDialogHeadline{
-    font-size: 24px;
-    font-weight: 700;
-}
-#fotoDialogImg {
-  height: 300px;
-  max-width: clamp(300px, 10vw, 560px);
-  object-fit: cover;
+  filter: drop-shadow(0 0px 10px rgba(255, 255, 255, 0.25));
+  width: 600px;
 }
 #fotoDialog::backdrop {
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
+}
+.fotoDialog-header {
+  justify-content: space-between;
+  padding-inline: 16px;
+}
+#fotoDialogHeadline {
+  font-size: 24px;
+  font-weight: 700;
+}
+.foto-dialog-img-wrapper {
+  flex-direction: column;
+  gap: 20px;
+  height: 400px;
+}
+#fotoDialogImg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.foto-dialog-footer {
+  gap: 30px;
+  padding-block: 30px;
+}
+.foto-dialog-close-btn,
+.foto-dialog-browse-btn {
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  border: none;
+  transition: background-color 0.25s ease-in-out;
+}
+.foto-dialog-close-btn {
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 32px;
+  width: 32px;
+  background-image: url(img/icons/close.png);
+}
+.foto-dialog-close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+.foto-dialog-browse-btn {
+  height: 60px;
+  width: 60px;
+  background-color: rgba(253, 91, 79, 0.6);
+  background-image: url(img/icons/Arrow-Right.png);
+}
+#browseImgBack {
+  transform: rotate(180deg);
+}
+.foto-dialog-browse-btn:hover {
+  background-color: rgba(253, 91, 79, 0.3);
 }
