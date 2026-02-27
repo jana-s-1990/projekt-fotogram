@@ -1,0 +1,74 @@
+:root {
+    --background-color-header-footer: #082029;
+    --background-color-main: #05171E;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+header,
+footer{
+    background-color: var(--background-color-header-footer);
+}
+button{
+    cursor: pointer;
+}
+main{
+    flex: 1;
+    background-color: var(--background-color-main);
+}
+.content{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/*------ flex ------*/
+.display-flex{
+    display: flex;
+}
+.flex-column{
+    flex-direction: column;
+}
+.flex-center-x{
+    justify-content: center;
+}
+.flex-center-y{
+    align-items: center;
+}
+
+/*-------------- Logo ---------------------*/
+.logo{
+    margin: 0;
+    padding: 20px;
+}
+header .logo{
+    width: clamp(180px, 5vw, 230px);
+}
+footer .logo{
+    width: clamp(40px, 3vw, 60px);
+}
+
+
+/*------- Fotogalerie ------*/
+.btn-img-dialog{
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+}
+#foto-container{
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#foto-container img{
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    border: 2px solid #7DAABD;
+    border-radius: 15px;
+}
+    
