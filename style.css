@@ -1,74 +1,88 @@
-:root {
-    --background-color-header-footer: #082029;
-    --background-color-main: #05171E;
-}
-body{
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+@font-face {
+  font-family: "Figtree";
+  src: url(font/Figtree-VariableFont_wght.ttf);
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
 }
 
+:root {
+  --background-color-header-footer: #09212a;
+  --background-color-main: #06171e;
+  --border-color: #124658;
+}
+body {
+  font-family: "Figtree", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: #fff;
+}
+h1{
+    font-size: clamp(48px, 3vw, 56px);
+    margin: 0;
+    margin-bottom: clamp(20px, 6vw, 150px);
+    text-align: center;
+}
 header,
-footer{
-    background-color: var(--background-color-header-footer);
+footer {
+  background-color: var(--background-color-header-footer);
+  justify-content: center;
 }
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
-main{
-    flex: 1;
-    background-color: var(--background-color-main);
+main {
+  flex: 1;
+  background-color: var(--background-color-main);
 }
-.content{
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 16px;
+.content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(6px, 1vw, 16px);
 }
 
 /*------ flex ------*/
-.display-flex{
-    display: flex;
+.display-flex {
+  display: flex;
 }
-.flex-column{
-    flex-direction: column;
+.flex-column {
+  flex-direction: column;
 }
-.flex-center-x{
-    justify-content: center;
+.flex-center-x {
+  justify-content: center;
 }
-.flex-center-y{
-    align-items: center;
+.flex-center-y {
+  align-items: center;
 }
 
 /*-------------- Logo ---------------------*/
-.logo{
-    margin: 0;
-    padding: 20px;
+.logo {
+  margin: 0;
+  padding: 20px;
 }
-header .logo{
-    width: clamp(180px, 5vw, 230px);
+header .logo {
+  width: clamp(180px, 5vw, 230px);
 }
-footer .logo{
-    width: clamp(40px, 3vw, 60px);
+footer .logo {
+  width: clamp(40px, 3vw, 60px);
 }
-
 
 /*------- Fotogalerie ------*/
-.btn-img-dialog{
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-
+.btn-img-dialog {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
-#foto-container{
-    flex-wrap: wrap;
-    gap: 10px;
+#foto-container {
+  flex-wrap: wrap;
+  gap: clamp(4px, 2vw, 16px);
 }
-#foto-container img{
-    height: 120px;
-    width: 120px;
-    object-fit: cover;
-    border: 2px solid #7DAABD;
-    border-radius: 15px;
+#foto-container img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
 }
-    
