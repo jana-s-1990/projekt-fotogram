@@ -1,3 +1,4 @@
+// Arrays mit Bildnamen und Beschreibung
 let yourImg = [
   "butterfly.jpg",
   "easter.jpg",
@@ -12,6 +13,7 @@ let yourImg = [
   "waterfall.jpg",
   "windmills.jpg",
 ];
+
 let imgAltDescription = [
   "Schmetterling",
   "Ostern",
@@ -27,32 +29,64 @@ let imgAltDescription = [
   "Windmühlen",
 ];
 
+//Funktion, welche beim Onload ausgeführt wird
 function init() {
-  getImgfromPath();
+  renderGallery();
 }
-function getImgfromPath() {
+
+// --------------------
+// GET-FUNKTIONEN (holen nur Daten)
+// --------------------
+function getImgPath(index) {
+  return yourImg[index];
+}
+
+function getAltDescription(index) {
+  return imgAltDescription[index];
+}
+
+// --------------------
+// RENDER-FUNKTIONEN (bauen HTML + schreiben ins DOM)
+// --------------------
+function renderGallery() {
+  let fotoContainer = document.getElementById("fotoContainer");
+
   for (let index = 0; index < yourImg.length; index++) {
-    const element = yourImg[index];
+    const fileName = getImgPath(index);
+    const altTag = getAltDescription(index);
 
-    let imgAltDescription = getImgAltTag(index);
-
-
-
-    let fotoContainer = document.getElementById("foto-container");
-    fotoContainer.innerHTML += renderImgPath(element, imgAltDescription);
+    fotoContainer.innerHTML += renderImgButton(fileName, altTag, index);
   }
 }
-
-function getImgAltTag(indexFromImgArr){
-    for (let index = 0; index < imgAltDescription.length; index++) {
-        if(index == indexFromImgArr){
-            return imgAltDescription[index];
-        }
-    }
-
+function renderImgButton(file, alt, index) {
+  return `
+    <button class="btn-img-dialog" onclick="openDialog(${index})">
+    <img src="img/${file}" alt="${alt}">
+    </button>`;
 }
 
-function renderImgPath(element, imgAltDescription) {
-  let imgContainer = `<button class="btn-img-dialog" onclick="showDialog()"><img src="img/${element}" alt="${imgAltDescription}"></button>`;
-  return imgContainer;
+// --------------------
+// Dialog öffnen (Daten holen) + Rendern woanders
+// --------------------
+function openDialog(index){
+    let fileName = getImgPath(index);
+    let altDescription = getAltDescription(index);
+
+    console.log(fileName);
+    console.log(altDescription);
+
+    renderDialog(fileName, altDescription);
+
+    fotoDialog.showModal();
+};
+function renderDialog(file, description){
+    let dialogHeadline = document.getElementById('fotoDialogHeadline');
+    let dialogImg = document.getElementById('fotoDialogImg');
+    let dialogImgFilename = document.getElementById('fotoDialogFileName');
+
+    dialogHeadline.innerText = description;
+    dialogImg.src = `img/${file}`;
+    dialogImg.alt = description;
+    dialogImgFilename.innerText = file;
+
 }

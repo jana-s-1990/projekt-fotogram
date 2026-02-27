@@ -10,6 +10,7 @@
   --background-color-header-footer: #09212a;
   --background-color-main: #06171e;
   --border-color: #124658;
+  --border-color-hover: #2d96ba;
 }
 body {
   font-family: "Figtree", sans-serif;
@@ -18,11 +19,11 @@ body {
   height: 100vh;
   color: #fff;
 }
-h1{
-    font-size: clamp(48px, 3vw, 56px);
-    margin: 0;
-    margin-bottom: clamp(20px, 6vw, 150px);
-    text-align: center;
+h1 {
+  font-size: clamp(48px, 3vw, 56px);
+  margin: 0;
+  margin-bottom: clamp(20px, 6vw, 150px);
+  text-align: center;
 }
 header,
 footer {
@@ -40,6 +41,7 @@ main {
   max-width: 1440px;
   margin: 0 auto;
   padding: clamp(6px, 1vw, 16px);
+  padding-block: 30px;
 }
 
 /*------ flex ------*/
@@ -75,14 +77,22 @@ footer .logo {
   padding: 0;
   margin: 0;
 }
-#foto-container {
+#fotoContainer {
   flex-wrap: wrap;
   gap: clamp(4px, 2vw, 16px);
 }
-#foto-container img {
+#fotoContainer img {
   height: 150px;
   width: 150px;
   object-fit: cover;
   border: 2px solid var(--border-color);
   border-radius: 16px;
+  box-sizing: border-box;
+  transition: all 0.25s ease-in-out;
+}
+
+#foto-container img:hover {
+  border-color: var(--border-color-hover);
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
 }

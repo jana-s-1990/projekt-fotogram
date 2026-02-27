@@ -6,21 +6,37 @@
     <title>Fotogram</title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style-responsive/tablet-view.css">
+    <link rel="stylesheet" href="style-responsive/tablet-view.css" />
   </head>
   <body onload="init()" class="display-flex flex-column">
     <header id="main-header-on-page" class="display-flex">
-        <figure class="display-flex logo"><img src="img/logo/logo.svg" alt="Logo Fotogram"></figure>
+      <figure class="display-flex logo">
+        <img src="img/logo/logo.svg" alt="Logo Fotogram" />
+      </figure>
     </header>
     <main class="display-flex">
-      
-      <section class="content display-flex flex-column flex-center-x flex-center-y">
+      <section
+        class="content display-flex flex-column flex-center-x flex-center-y"
+      >
         <h1>Your personal photo album</h1>
-        <div id="foto-container" class="display-flex flex-center-x flex-center-y"></div>
+        <div
+          id="fotoContainer"
+          class="display-flex flex-center-x flex-center-y"
+        ></div>
       </section>
     </main>
+    <dialog id="fotoDialog" open>
+      <h2 id="fotoDialogHeadline"></h2>
+      <figure>
+        <img id="fotoDialogImg">
+        <figcaption id="fotoDialogFileName"></figcaption>
+      </figure>
+      <button type="button" onclick="fotoDialog.close()">Schließen</button>
+    </dialog>
     <footer id="main-footer-on-page" class="display-flex">
-        <figure class="logo display-flex"><img src="img/logo/logo-pikogram.svg" alt="Logo Fotogram"></figure>
+      <figure class="logo display-flex">
+        <img src="img/logo/logo-pikogram.svg" alt="Logo Fotogram" />
+      </figure>
     </footer>
   </body>
 </html>
