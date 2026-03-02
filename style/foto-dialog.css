@@ -2,7 +2,8 @@
 #fotoDialog {
   background-color: var(--background-color-header-footer);
   color: #fff;
-  border: none;
+  padding: 0;
+  border:none;
   border-radius: 40px;
   width: 600px;
 }
@@ -12,12 +13,16 @@
   backdrop-filter: blur(4px);
 }
 
+#foto-dialog-stopbubbeling-wrapper {
+  padding: 16px;
+}
+
 .fotoDialog-header {
   justify-content: space-between;
   padding-inline: 16px;
 }
 
-#fotoDialogHeadline {
+#foto-dialo-headline {
   font-size: 24px;
   font-weight: 700;
 }
@@ -28,7 +33,7 @@
   height: 400px;
 }
 
-#fotoDialogImg {
+#foto-dialog-img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -67,7 +72,7 @@
   background-image: url(../img/icons/Arrow-Right.png);
 }
 
-#browseImgBack {
+#browse-img-back {
   transform: rotate(180deg);
 }
 

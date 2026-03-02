@@ -12,10 +12,10 @@
     <script src="script.js"></script>
 
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style/flex-style.css">
-    <link rel="stylesheet" href="style/logo.css">
-    <link rel="stylesheet" href="style/fotogalerie.css">
-    <link rel="stylesheet" href="style/foto-dialog.css">
+    <link rel="stylesheet" href="style/flex-style.css" />
+    <link rel="stylesheet" href="style/logo.css" />
+    <link rel="stylesheet" href="style/fotogalerie.css" />
+    <link rel="stylesheet" href="style/foto-dialog.css" />
     <link rel="stylesheet" href="style/tablet-view.css" />
   </head>
   <body onload="init()" class="display-flex flex-column">
@@ -30,33 +30,41 @@
       >
         <h1>Your personal photo album</h1>
         <div
-          id="fotoContainer"
+          id="foto-container"
           class="display-flex flex-center-x flex-center-y"
         ></div>
       </section>
     </main>
-    <dialog id="fotoDialog">
-      <header class="fotoDialog-header display-flex flex-center-y">
-        <h2 id="fotoDialogHeadline"></h2>
-        <button class="foto-dialog-close-btn" type="button" onclick="fotoDialog.close()"></button>
-      </header>
-      <figure class="foto-dialog-img-wrapper display-flex flex-center-x flex-center-y">
-        <img id="fotoDialogImg" />
-        <figcaption id="fotoDialogFileName"></figcaption>
-      </figure>
-      <footer class="display-flex foto-dialog-footer">
-        <button
-          id="browseImgBack"
-          class="foto-dialog-browse-btn"
-          onclick="browseImgBack()"
-        ></button>
-        <div id="imgCounter"></div>
-        <button
-          id="browseImgForward"
-          class="foto-dialog-browse-btn"
-          onclick="browseImgForward()"
-        ></button>
-      </footer>
+    <dialog id="fotoDialog" onclick="fotoDialog.close()">
+      <div id="foto-dialog-stopbubbeling-wrapper" onclick="stopClick(event)">
+        <header class="fotoDialog-header display-flex flex-center-y">
+          <h2 id="foto-dialog-headline"></h2>
+          <button
+            class="foto-dialog-close-btn"
+            type="button"
+            onclick="fotoDialog.close()"
+          ></button>
+        </header>
+        <figure
+          class="foto-dialog-img-wrapper display-flex flex-center-x flex-center-y"
+        >
+          <img id="foto-dialog-img" />
+          <figcaption id="foto-dialog-filename"></figcaption>
+        </figure>
+        <footer class="display-flex foto-dialog-footer">
+          <button
+            id="browse-img-back"
+            class="foto-dialog-browse-btn"
+            onclick="browseImgBack()"
+          ></button>
+          <div id="img-counter"></div>
+          <button
+            id="browse-img-forward"
+            class="foto-dialog-browse-btn"
+            onclick="browseImgForward()"
+          ></button>
+        </footer>
+      </div>
     </dialog>
     <footer id="main-footer-on-page" class="display-flex">
       <figure class="logo display-flex">

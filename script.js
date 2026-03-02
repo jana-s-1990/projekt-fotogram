@@ -36,9 +36,7 @@ function init() {
   renderGallery();
 }
 
-// --------------------
 // GET-FUNKTIONEN (holen nur Daten)
-// --------------------
 function getImgPath(index) {
   return yourImg[index];
 }
@@ -47,11 +45,9 @@ function getAltDescription(index) {
   return imgAltDescription[index];
 }
 
-// --------------------
 // RENDER-FUNKTIONEN (bauen HTML + schreiben ins DOM)
-// --------------------
 function renderGallery() {
-  let fotoContainer = document.getElementById("fotoContainer");
+  let fotoContainer = document.getElementById("foto-container");
 
   for (let index = 0; index < yourImg.length; index++) {
     const fileName = getImgPath(index);
@@ -60,6 +56,7 @@ function renderGallery() {
     fotoContainer.innerHTML += renderImgButton(fileName, altTag, index);
   }
 }
+
 function renderImgButton(file, alt, index) {
   return `
     <button class="btn-img-dialog" onclick="openDialog(${index})">
@@ -67,9 +64,7 @@ function renderImgButton(file, alt, index) {
     </button>`;
 }
 
-// --------------------
 // Dialog öffnen (Daten holen) + Rendern woanders
-// --------------------
 function openDialog(index) {
   let fileName = getImgPath(index);
   let altDescription = getAltDescription(index);
@@ -79,13 +74,15 @@ function openDialog(index) {
 
   renderDialog(fileName, altDescription, index);
 
+  let fotoDialog = document.getElementById("fotoDialog");
   fotoDialog.showModal();
 }
+
 function renderDialog(file, description, index) {
-  let dialogHeadline = document.getElementById("fotoDialogHeadline");
-  let dialogImg = document.getElementById("fotoDialogImg");
-  let dialogImgFilename = document.getElementById("fotoDialogFileName");
-  let dialogImgCounter = document.getElementById("imgCounter");
+  let dialogHeadline = document.getElementById("foto-dialog-headline");
+  let dialogImg = document.getElementById("foto-dialog-img");
+  let dialogImgFilename = document.getElementById("foto-dialog-filename");
+  let dialogImgCounter = document.getElementById("img-counter");
 
   dialogHeadline.innerText = description;
   dialogImg.src = `img/${file}`;
@@ -94,15 +91,12 @@ function renderDialog(file, description, index) {
   dialogImgCounter.innerHTML = `<p>${index + 1}/${yourImg.length}</p>`;
 }
 
-// --------------------
 // Dialog Buttons
-// --------------------
 function browseImgBack() {
   let index = currentImg - 1;
 
-  if(index < 0){
-    index = yourImg.length -1;
-
+  if (index < 0) {
+    index = yourImg.length - 1;
   }
 
   let imgBackFile = getImgPath(index);
@@ -112,10 +106,11 @@ function browseImgBack() {
 
   currentImg = index;
 }
+
 function browseImgForward() {
   let index = currentImg + 1;
 
-  if(index >= yourImg.length){
+  if (index >= yourImg.length) {
     index = 0;
   }
   let imgForwardFile = getImgPath(index);
@@ -124,4 +119,7 @@ function browseImgForward() {
   renderDialog(imgForwardFile, imgForwardDescription, index);
 
   currentImg = index;
+}
+function stopClick(event){
+  event.stopPropagation();
 }
