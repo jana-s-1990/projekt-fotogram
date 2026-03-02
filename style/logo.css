@@ -3,11 +3,3 @@
   margin: 0;
   padding: 20px;
 }
-
-header .logo {
-  width: clamp(180px, 5vw, 230px);
-}
-
-footer .logo {
-  width: clamp(40px, 3vw, 60px);
-}
