@@ -4,7 +4,7 @@
   color: #fff;
   padding: 0;
   border:none;
-  border-radius: 40px;
+  border-radius: 20px;
   width: 600px;
 }
 
@@ -14,12 +14,11 @@
 }
 
 #foto-dialog-stopbubbeling-wrapper {
-  padding: 16px;
+  padding: 8px;
 }
 
 .fotoDialog-header {
   justify-content: space-between;
-  padding-inline: 16px;
 }
 
 #foto-dialo-headline {
@@ -31,6 +30,7 @@
   flex-direction: column;
   gap: 20px;
   height: 400px;
+  margin: 0;
 }
 
 #foto-dialog-img {

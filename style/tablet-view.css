@@ -1,6 +1,18 @@
 /*------Media Query min-width: 768px -------*/
-@media (min-width:768px) {
-    header{
-        justify-content: flex-start;
-    }
+@media (min-width: 768px) {
+  header {
+    justify-content: flex-start;
+  }
+  #fotoDialog {
+    border-radius: 40px;
+  }
+  #foto-dialog-stopbubbeling-wrapper {
+    padding: 16px;
+  }
+  .fotoDialog-header {
+    padding-inline: 16px;
+  }
+  .foto-dialog-img-wrapper {
+    padding: 16px;
+  }
 }
